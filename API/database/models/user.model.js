@@ -7,7 +7,7 @@ const userSchema = schema({
   username: { type: String, required: true },
   local: {
     password: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
   },
 });
 
