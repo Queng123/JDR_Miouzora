@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const index = require('./routes');
 const dotenv = require('dotenv').config();
+const errorHandler = require('errorhandler');
+
 
 require('./database');
 
@@ -24,6 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('short'));
 app.use(index);
 
+
+
+// error handler when development mode -> very useful for debugging
+if (process.env.NODE_ENV === 'development') {
+  app.use(errorHandler());
+}
 
 
 app.listen(port);
