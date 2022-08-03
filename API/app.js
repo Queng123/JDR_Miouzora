@@ -5,6 +5,7 @@ const index = require('./routes');
 require('./database');
 
 const app = express();
+exports.app = app;
 
 //port to listen (default 3000)
 const port = process.env.PORT || 3000;
