@@ -9,6 +9,11 @@ const app = express();
 //port to listen (default 3000)
 const port = process.env.PORT || 3000;
 
+
+require('./config/session.config');
+require('./config/passport.config');
+
+
 // jason parser
 app.use(express.json());
 // url encoded parser
