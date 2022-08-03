@@ -1,11 +1,10 @@
-const { getMob, createMob, deleteMob } = require('../queries/mobs.queries');
-
+const { getMob, getMobs, createMob, deleteMob } = require('../queries/mobs.queries');
 
 // controller to create one mob
 exports.mobCreate = async (req, res, next) => {
 try {
     await createMob(req.body);
-    res.redirect('/');
+    res.redirect('/mobs');
 } catch (err) {
     next(err);
   }
@@ -15,7 +14,7 @@ try {
 exports.mobDelete = async (req, res, next) => {
   try {
     await deleteMob(req.params.mobId);
-    res.redirect('/');
+    res.redirect('/mobs');
   } catch (err) {
     next(err);
   }
