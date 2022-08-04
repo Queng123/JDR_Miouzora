@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "NODE_ENV=development nodemon app.js",
+    "serve": "NODE_ENV=serv nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
