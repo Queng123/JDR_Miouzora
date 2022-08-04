@@ -6,7 +6,7 @@ exports.signup = async (req, res, next) => {
   const body = req.body;
   try {
     const user = await createUser(body);
-    res.redirect('/mobs');
+    res.end(JSON.stringify(user));
   } catch(err) {
     next(err);
   }
@@ -31,6 +31,8 @@ exports.signin = (req, res, next) => {
 }
 
 exports.signout = (req, res, next) => {
-  req.logout();
+  req.logout((err) => {
+    next(err);
+  });
   res.redirect('/mobs');
 }
