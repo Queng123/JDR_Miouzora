@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-exports.clientPromise = mongoose.connect(process.env.MONGODB_ADRESS, {
+const mongodbAdress = (process.env.NODE_ENV === 'development') ? 'mongodb://queng:azerty@localhost/twitter' : 'mongodb+srv://queng:azerty@jdrmiouzora.7wn6y.mongodb.net/?retryWrites=true&w=majority';
+
+exports.clientPromise = mongoose.connect(mongodbAdress, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then( () => {
