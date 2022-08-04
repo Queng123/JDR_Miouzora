@@ -6,7 +6,7 @@ exports.signup = async (req, res, next) => {
   const body = req.body;
   try {
     const user = await createUser(body);
-    res.redirect('/');
+    res.redirect('/mobs');
   } catch(err) {
     next(err);
   }
@@ -24,7 +24,7 @@ exports.signin = (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        res.redirect('/');
+        res.redirect('/mobs');
       }
     });
   })(req, res, next);
@@ -32,5 +32,5 @@ exports.signin = (req, res, next) => {
 
 exports.signout = (req, res, next) => {
   req.logout();
-  res.redirect('/user/signin');
+  res.redirect('/mobs');
 }
