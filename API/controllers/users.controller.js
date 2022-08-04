@@ -1,4 +1,4 @@
-const { createUser } = require('../queries/users.queries');
+const { createUser, sendMail } = require('../queries/users.queries');
 const passport = require("passport");
 
 //singup new user
@@ -6,6 +6,7 @@ exports.signup = async (req, res, next) => {
   const body = req.body;
   try {
     const user = await createUser(body);
+    await sendMail(user);
     res.end(JSON.stringify(user));
   } catch(err) {
     next(err);
@@ -30,6 +31,7 @@ exports.signin = (req, res, next) => {
   })(req, res, next);
 }
 
+//signout user
 exports.signout = (req, res, next) => {
   req.logout((err) => {
     next(err);
