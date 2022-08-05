@@ -13,21 +13,18 @@ export default {
     },
     methods: {
         refresh: async function() {
-        var response = null;
-        var error = null;
-        await callAPI.callAPI('http://localhost:3000/mobs', 'GET', {})
-            .then((r) => {
-                response = r;
-                console.log("oui");
-                console.log(response);
-            })
-            .catch((e) => {
-                error = e.response;
-                console.log("non");
-                console.log(error);
-            });
-        // TODO: set this.mobs to api call
-        console.log("refreshed");
+            var response = null;
+            var error = null;
+            await callAPI.callAPI('http://localhost:3000/mobs', 'GET', {})
+                .then((r) => {
+                    response = r;
+                })
+                .catch((e) => {
+                    error = e.response;
+                });
+            if (response) {
+                this.mobs = response.data;
+            }
         }
     }
 }
