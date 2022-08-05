@@ -34,8 +34,12 @@ exports.sendMail = (user) => {
     from: '"JDR miouzora"<no-reply@test-epitech.fr>',
     to: user.local.email,
     subject: 'Ne pas répondre',
-    text: 'Welcome ' + user.username + ' to the JDR Miouzora website. \n\n\nClick to the link below to be redirect on our website: \n\nhttp://mon-site.com/',
+    text: 'Welcome ' + user.username + ' to the JDR Miouzora website. \n\n\nClick to the link below to be redirect on our website: \n\nhttp://localhost:3000/users/validation/' + user._id,
   });
+}
+
+exports.validUser = (id) => {
+  return User.findByIdAndUpdate(id, { valid: true }).exec();
 }
 
 //find user by email

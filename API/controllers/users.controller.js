@@ -1,4 +1,4 @@
-const { createUser, sendMail } = require('../queries/users.queries');
+const { createUser, sendMail, validUser } = require('../queries/users.queries');
 const passport = require("passport");
 
 //singup new user
@@ -13,10 +13,23 @@ exports.signup = async (req, res, next) => {
   }
 }
 
+exports.validation = async (req, res, next) => {
+  const userId = req.params.userId;
+  try {
+    req.user = await validUser(userId);
+    res.redirect('/connexion');
+  } catch(err) {
+    next(err);
+  }
+}
+
 //signin user that already exist (link to passport.config)
 exports.signin = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
-    if (err) {
+    if (user.valid === false) {
+      res.redirect('/users');
+      return;
+    } else if (err) {
       next(err);
     } else if (!user) {
       console.log({ errors: [info.message] });

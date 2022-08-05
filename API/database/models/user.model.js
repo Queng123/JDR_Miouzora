@@ -9,7 +9,8 @@ const userSchema = schema({
     password: { type: String, required: true },
     email: { type: String, required: true, unique: true },
   },
-  admin: { type: Boolean, default: false }
+  admin: { type: Boolean, default: false },
+  valid: { type: Boolean, default: false }
 });
 
 //hash password before saving
