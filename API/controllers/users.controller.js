@@ -6,7 +6,8 @@ exports.signup = async (req, res, next) => {
   const body = req.body;
   try {
     const user = await createUser(body);
-    await sendMail(user);
+    const message = 'Welcome ' + user.username + ' to the JDR Miouzora website. \n\n\nClick to the link below to be redirect on our website: \n\nhttp://localhost:3000/users/validation/' + user._id;
+    await sendMail(user, message);
     res.end(JSON.stringify(user));
   } catch(err) {
     next(err);

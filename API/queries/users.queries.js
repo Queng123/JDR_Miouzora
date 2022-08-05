@@ -20,7 +20,7 @@ exports.createUser = async (user) => {
 }
 
 //send mail to user
-exports.sendMail = (user) => {
+exports.sendMail = (user, body) => {
   const transporter = nodemailer.createTransport({
     host: 'mail56.lwspanel.com',
     port: 465,
@@ -34,7 +34,7 @@ exports.sendMail = (user) => {
     from: '"JDR miouzora"<no-reply@test-epitech.fr>',
     to: user.local.email,
     subject: 'Ne pas répondre',
-    text: 'Welcome ' + user.username + ' to the JDR Miouzora website. \n\n\nClick to the link below to be redirect on our website: \n\nhttp://localhost:3000/users/validation/' + user._id,
+    text: body,
   });
 }
 
