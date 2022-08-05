@@ -27,7 +27,7 @@ exports.sendMail = (user, body) => {
     secure: true,
     auth: {
       user: 'no-reply@test-epitech.fr',
-      pass: 'zG9-wtmP1HpGZvQ'
+      pass: process.env.EMAIL_PASS
     }
   });
   return transporter.sendMail({
