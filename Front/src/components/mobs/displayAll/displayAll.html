@@ -1,4 +1,17 @@
 <font-awesome-icon icon="fa-solid fa-arrows-rotate fa-4x" size="xl" @click="refresh"/>
-<div class="mobDescription" v-for="mob in this.mobs" :key="mob">
-    {{ mob }}
+<div class="mobList" v-for="mob in this.mobs" :key="mob">
+    <div class="mobName">Name: {{ mob.name }}</div>
+    <div class="mobType">Type: {{ mob.type }}</div>
+    <div class="mobAge">Age: {{ mob.age }}</div>
+    <div class="mobDescription">Description: {{ mob.description }}</div>
+    <div class="mobHealth">Health: {{ mob.stats.health }}</div>
+    <div class="mobSoul">Soul: {{ mob.stats.soul }}</div>
+    <div class="mobNama">Nama: {{ mob.stats.nama }}</div>
+    <div v-if="mob.stats">
+        <stats :allStats="mob.stats.caracteristics" name="Caracteristics"/>
+        <div class="comp">
+            <stats :allStats="mob.stats.resistance" name="Resistance" class="resistance"/>
+            <stats :allStats="mob.stats.strenght" name="Strenght" class="strenght"/>
+        </div>
+    </div>
 </div>

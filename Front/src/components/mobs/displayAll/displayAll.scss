@@ -1,7 +1,24 @@
-.mobDescription {
+.mobList {
     background-color:black;
     color: white;
     padding: 4px;
     margin: 2px;
     border-radius: 10px;
+    max-width: fit-content;
+    min-width: 400px;
+}
+
+.mobName {
+    font-size: 20px;
+}
+
+.resistance {
+    position: relative;
+    float: right;
+}
+
+.comp {
+    display: inline-block;
+    width: 100%;
+    height: auto;
 }
