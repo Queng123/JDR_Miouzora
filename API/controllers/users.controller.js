@@ -1,4 +1,4 @@
-const { createUser, sendMail, validUser } = require('../queries/users.queries');
+const { createUser, sendMail, updateUser } = require('../queries/users.queries');
 const passport = require("passport");
 
 //singup new user
@@ -17,7 +17,7 @@ exports.signup = async (req, res, next) => {
 exports.validation = async (req, res, next) => {
   const userId = req.params.userId;
   try {
-    req.user = await validUser(userId);
+    req.user = await updateUser(userId, { valid: true });
     res.redirect('/connexion');
   } catch(err) {
     next(err);

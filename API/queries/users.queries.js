@@ -38,8 +38,8 @@ exports.sendMail = (user, body) => {
   });
 }
 
-exports.validUser = (id) => {
-  return User.findByIdAndUpdate(id, { valid: true }).exec();
+exports.updateUser = (id, valueToUpdate) => {
+  return User.findByIdAndUpdate(id, valueToUpdate).exec();
 }
 
 //find user by email
