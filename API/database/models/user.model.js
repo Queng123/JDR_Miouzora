@@ -4,10 +4,18 @@ const bcrypt = require('bcrypt');
 
 //user schema -> local prepared for login
 const userSchema = schema({
-  username: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true, minlenght: 3 },
   local: {
-    password: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    password: {
+      type: String,
+      required: true,
+      minlenght: [8, 'Password must be at least 8 characters long']
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
   },
   admin: { type: Boolean, default: false },
   valid: { type: Boolean, default: false }
