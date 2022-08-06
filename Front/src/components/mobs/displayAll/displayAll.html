@@ -4,10 +4,10 @@
     <div class="mobType">Type: {{ mob.type }}</div>
     <div class="mobAge">Age: {{ mob.age }}</div>
     <div class="mobDescription">Description: {{ mob.description }}</div>
-    <div class="mobHealth">Health: {{ mob.stats.health }}</div>
-    <div class="mobSoul">Soul: {{ mob.stats.soul }}</div>
-    <div class="mobNama">Nama: {{ mob.stats.nama }}</div>
     <div v-if="mob.stats">
+        <div class="mobHealth">Health: {{ mob.stats.health }}</div>
+        <div class="mobSoul">Soul: {{ mob.stats.soul }}</div>
+        <div class="mobNama">Nama: {{ mob.stats.nama }}</div>
         <stats :allStats="mob.stats.caracteristics" name="Caracteristics"/>
         <div class="comp">
             <stats :allStats="mob.stats.resistance" name="Resistance" class="resistance"/>

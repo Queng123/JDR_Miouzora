@@ -1,4 +1,6 @@
-<!-- <div id="nav">
-    <router-link :to="{ name: 'home' , params: { someText: 'Hello World!' }}">Home</router-link>
-</div> -->
+<div id="nav">
+    <router-link :to="{ name: 'home' }">Home</router-link> |  <!-- <router-link :to="{ name: 'home' , params: { someText: 'Hello World!' }}">Home</router-link> -->
+    <router-link :to="{ name: 'mobsList' }">List mobs</router-link> |
+    <router-link :to="{ name: 'mobsCreate' }">Create mobs</router-link>
+</div>
 <router-view/>
