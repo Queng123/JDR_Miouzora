@@ -1,5 +1,4 @@
 const Mob = require('../database/models/mob.model');
-const schema = require('../database/models/mob.model').mobSchema;
 
 //create one mob
 exports.createMob = (mob) => {
