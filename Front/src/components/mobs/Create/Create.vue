@@ -1,22 +1,28 @@
 <script>
 import callAPI from '@/services/callAPI.js';
+import TreeMenu from '@/components/generic/TreeMenu.vue'
 
 export default {
     data() {
         return {
-            mobCaracteristics: { type: Object},
+            mobSchema: { type: Object},
             newMob: { type: Object }
         }
     },
+    components: {
+        TreeMenu
+    },
     mounted() {
-        this.mobCaracteristics = this.getCaracteristics();
+        this.mobSchema = this.getSchema();
     },
     methods: {
-        getCaracteristics: async function() {
+        getSchema: async function() {
             var response = null;
             var error = null;
-            this.mobs = null;
-            await callAPI.callAPI('http://localhost:3000/mobs/default/caracteristics', 'GET', {})
+
+            this.mobSchema = null;
+
+            await callAPI.callAPI('http://localhost:3000/mobs/schema', 'GET', {})
                 .then((r) => {
                     response = r;
                 })
@@ -24,7 +30,7 @@ export default {
                     error = e.response;
                 });
             if (response) {
-                this.mobCaracteristics = response.data;
+                this.mobSchema = response.data;
             } else {
                 console.log("Doesn't respond");
             }
