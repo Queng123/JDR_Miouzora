@@ -1,5 +1,5 @@
 const Mob = require('../database/models/mob.model');
-
+const schema = require('../database/models/mob.model').mobSchema;
 
 //create one mob
 exports.createMob = (mob) => {
@@ -19,6 +19,10 @@ exports.getMob = (mobId) => {
   return Mob.findOne({ _id: mobId }).exec();
 }
 
+//get mob schema
+exports.getSchemaMob = () => {
+  return Mob.schema.obj;
+}
 
 //get all mobs
 exports.getMobs = () => {

@@ -1,4 +1,4 @@
-const { getMob, getMobs, createMob, deleteMob } = require('../queries/mobs.queries');
+const { getMob, getMobs, createMob, deleteMob, getSchemaMob } = require('../queries/mobs.queries');
 
 // controller to create one mob
 exports.mobCreate = async (req, res, next) => {
@@ -32,6 +32,15 @@ exports.mobType = async (req, res, next) => {
   }
 }
 
+exports.mobSchema = async (req, res, next) => {
+  try {
+    const schema = await getSchemaMob();
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(schema));
+  } catch (err) {
+    next(err);
+  }
+}
 
 // controller to delete one mob
 exports.mobDelete = async (req, res, next) => {
