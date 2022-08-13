@@ -1,6 +1,6 @@
 <template>
   <div v-if="isStat(this.attributs)">
-    {{'&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(indent) + label }}
+    {{'&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(indent) + label }}: <stat-input-text :label="this.label" :attributs="this.attributs" />
   </div>
   <div v-else>{{ label }} :
     <div v-for="(value, attribut) in this.attributs">
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import StatInputText from '@/components/generic/StatInputText.vue'
 
   export default {
     props: [
@@ -17,24 +18,33 @@
       'attributs',
       'indent'
       ],
+    components: {
+      StatInputText
+    },
     name: 'tree-menu',
+    // setup() {
+    //   let inputText = ref([])
+    // },
     methods: {
       isStat: (attributs) => {
         if (Object.keys(attributs)
           .filter((key) => key !== 'required')
-          .filter((key) => key !== 'unique').length == 0) {
+          .filter((key) => key !== 'unique')
+          .filter((key) => key !== 'multiline').length == 0) {
           return true;
         } else {
           return false;
         }
       },
       isCaracteristics: (attributs) => {
-        console.log(attributs);
-        if (attributs === 'required' || attributs === 'unique') {
+        if (attributs === 'required' || attributs === 'unique' || attributs !== 'multiline') {
           return false
         } else {
           return true;
         }
+      },
+      getInputs: () => {
+
       }
     }
   }
