@@ -1,0 +1,39 @@
+{
+    type: 'azer',
+    name: 'azer',
+    age: 21,
+    description: 'azer',
+    type: {
+        health: 1,
+        soul: 1,
+        nama: 1,
+        caracteristics: {
+            comprehension:1
+            fluidityWithEnvironment: 1,
+            discretion: 1,
+            conviction: 1,
+            beauty: 1
+        },
+        resistance: {
+            physical: 1,
+            lofi:1,
+            explosions: 1,
+            hypnosis:1,
+            AMI: 1,
+            souls:1,
+            influence:1,
+            feelings: 1,
+            drowning:1
+        },
+        strenght: {
+            physical: 1,
+            explosif: 1,
+            hypnosis: 1,
+            souls: 1,
+            influence: 1,
+            feelings: 1,
+            drowning: 1,
+            lofif: 1
+        }
+    }
+}

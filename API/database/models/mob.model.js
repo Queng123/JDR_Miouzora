@@ -6,7 +6,7 @@ const mobSchema = schema({
   type: {type: String, required: true},
   name: {type: String, required: true, unique: true},
   age: {type: Number},
-  description: {type: String},
+  description: {type: String, multiline: true},
   stats: {
     health: {type: Number, required: true},
     soul: {type: Number, required: true},

@@ -39,8 +39,9 @@ export default {
 }
 </script>
 
-<template src="./Create.html" />
+<template>
 
-<style scoped>
-    @import "./Create.scss";
-</style>
+<font-awesome-icon icon="fa-solid fa-arrows-rotate fa-4x" size="xl" @click="getSchema"/>
+<tree-menu :label='"mobSchema"' :attributs='this.mobSchema' :indent=0 v-if="this.mobSchema" />
+
+</template>
